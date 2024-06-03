@@ -8,28 +8,28 @@ true > "$out"
 {
 echo "set(TCMALLOC_FILES"
 find ./tcmalloc -maxdepth 1 -regex ".*\.\(cc\|h\)" \
-    | sort | grep -v -E "mock_|_test|_fuzz|_benchmark|profile_marshaler.cc"
+    | sort | grep -v -E "mock_|_test|_fuzz|_benchmark|profile_marshaler.cc" | awk '{printf "    %s\n", $0}'
 echo -e ")\n\n"
 
 echo "set(TCMALLOC_TEST_FILES"
 find ./tcmalloc -maxdepth 1 -regex ".*\.\(cc\|h\)" \
-    | sort | grep -E "mock_|_test|_fuzz|_benchmark|profile_marshaler.cc"
+    | sort | grep -E "mock_|_test|_fuzz|_benchmark|profile_marshaler.cc" | awk '{printf "    %s\n", $0}'
 echo -e ")\n\n"
 
 
 echo "set(TCMALLOC_INTERNAL_FILES"
 find ./tcmalloc/internal -maxdepth 1 -regex ".*\.\(cc\|h\)" \
-    | sort | grep -v -E "_test|_fuzz|_benchmark|profile_builder.cc"
+    | sort | grep -v -E "_test|_fuzz|_benchmark|profile_builder.cc" | awk '{printf "    %s\n", $0}'
 echo -e ")\n\n"
 
 echo "set(TCMALLOC_INTERNAL_TEST_FILES"
 find ./tcmalloc/internal -maxdepth 1 -regex ".*\.\(cc\|h\)" \
-    | sort | grep -E "_test|_fuzz|_benchmark|profile_builder.cc"
+    | sort | grep -E "_test|_fuzz|_benchmark|profile_builder.cc" | awk '{printf "    %s\n", $0}'
 echo -e ")\n\n"
 
 
 echo "set(TCMALLOC_TESTING_FILES"
-find ./tcmalloc/testing -maxdepth 1 -regex ".*\.\(cc\|h\)" | sort
+find ./tcmalloc/testing -maxdepth 1 -regex ".*\.\(cc\|h\)" | sort | awk '{printf "    %s\n", $0}'
 echo ")"
 
 } >> $out
