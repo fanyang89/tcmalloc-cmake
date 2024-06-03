@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 project(tcmalloc-cmake VERSION 0.0.1 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
 
 if(TARGET tcmalloc OR TARGET tcmalloc::tcmalloc)
     return()
@@ -11,14 +12,13 @@ set(TCMALLOC_SYSTEM "suppress warnings from this lib when included" ON)
 set(TCMALLOC_PROTO "build with protobuf support" ON)
 set(TCMALLOC_TEST "build tests" ON)
 
-
 ## dependency resolution
-include(<F2>FetchContent)
+include(FetchContent)
 
 FetchContent_Declare(
     abseil
     GIT_REPOSITORY   https://github.com/abseil/abseil-cpp.git
-    GIT_TAG          6db185d8e2ba93adf32d689fd702ee0465b2e5ec
+    GIT_TAG          d06b82773e2306a99a8971934fb5845d5c04a170
     OVERRIDE_FIND_PACKAGE
 )
 
