@@ -4,7 +4,7 @@ This project adds external CMake build support to the
 [TCMalloc](https://github.com/google/tcmalloc) project. TCMalloc itself relies
 on the Bazel build system.
 
-tcmalloc-cmake downloads TCMalloc from gitub if not provided with a path to a
+tcmalloc-cmake downloads TCMalloc from GitHub if not provided with a path to a
 source directory.
 
 ## Options
@@ -38,7 +38,7 @@ reason about, making it harder to trust.
 This choice results in:
 
     - few options
-    - new camke only as `FetchContent` is required
+    - new cmake only as `FetchContent` is required
     - few checks (e.g. compatibility)
 
 ## PRs are Welcome
